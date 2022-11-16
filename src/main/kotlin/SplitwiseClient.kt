@@ -1,6 +1,6 @@
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
-import models.Expense
+import models.domain.Expense
 import models.responses.GetExpensesResponse
 import org.apache.http.client.HttpClient
 import org.apache.http.client.methods.HttpGet
