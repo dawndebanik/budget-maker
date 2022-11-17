@@ -11,7 +11,10 @@ class ConfigLoader private constructor() {
         private var config: Config? = null
         fun getApplicationConfig(): Config {
             return when (config) {
-                null -> objectMapper.readValue(File(CONFIG_FILE_PATH), Config::class.java)
+                null -> {
+                    config = objectMapper.readValue(File(CONFIG_FILE_PATH), Config::class.java)
+                    config as Config
+                }
                 else -> config as Config
             }
         }
