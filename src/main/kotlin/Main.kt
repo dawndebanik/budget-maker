@@ -3,7 +3,6 @@ import org.apache.http.impl.client.HttpClients
 
 fun main(args: Array<String>) {
     val httpClient: HttpClient = HttpClients.createDefault()
-    val config = ConfigLoader.getApplicationConfig()
-    val splitwise = SplitwiseClient(httpClient, config.apiKey)
+    val splitwise = SplitwiseClient(httpClient)
     println(splitwise.getExpenses())
 }

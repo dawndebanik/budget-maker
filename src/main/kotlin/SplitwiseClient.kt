@@ -10,7 +10,7 @@ import org.apache.http.util.EntityUtils
 private const val AUTHORIZATION_HEADER_KEY = "Authorization"
 private const val BEARER_IDENTIFIER = "Bearer"
 
-class SplitwiseClient(private var httpClient: HttpClient, private var apiKey: String) {
+class SplitwiseClient(private var httpClient: HttpClient) {
 
     private val objectMapper = jacksonObjectMapper()
     private val config = ConfigLoader.getApplicationConfig()
@@ -31,7 +31,7 @@ class SplitwiseClient(private var httpClient: HttpClient, private var apiKey: St
             RequestBuilder
                 .get()
                 .setUri(uriBuilder.build())
-                .setHeader(AUTHORIZATION_HEADER_KEY, "$BEARER_IDENTIFIER $apiKey")
+                .setHeader(AUTHORIZATION_HEADER_KEY, "$BEARER_IDENTIFIER ${config.apiKey}")
             .build()
 
         return EntityUtils.toString(httpClient.execute(request).entity)
