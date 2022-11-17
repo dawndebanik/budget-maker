@@ -3,29 +3,37 @@ import com.fasterxml.jackson.module.kotlin.readValue
 import models.domain.Expense
 import models.responses.GetExpensesResponse
 import org.apache.http.client.HttpClient
-import org.apache.http.client.methods.HttpGet
+import org.apache.http.client.methods.RequestBuilder
+import org.apache.http.client.utils.URIBuilder
 import org.apache.http.util.EntityUtils
 
-private const val SPLITWISE_V3_BASE_URL = "https://secure.splitwise.com/api/v3.0"
+private const val AUTHORIZATION_HEADER_KEY = "Authorization"
+private const val BEARER_IDENTIFIER = "Bearer"
 
 class SplitwiseClient(private var httpClient: HttpClient, private var apiKey: String) {
 
     private val objectMapper = jacksonObjectMapper()
+    private val config = ConfigLoader.getApplicationConfig()
 
     fun getExpenses(): List<Expense> {
-        val response = performGetCall("get_expenses")
+        val response = performGetCall(config.appConfig?.getExpensesEndpoint)
         val getExpensesResponse: GetExpensesResponse = objectMapper.readValue(response)
 
         return getExpensesResponse.expenses
     }
 
-    private fun performGetCall(endpoint: String): String {
-        val request = HttpGet("$SPLITWISE_V3_BASE_URL/$endpoint").addAuthHeader(apiKey)
+    private fun performGetCall(endpoint: String?, params: Map<String, String>? = emptyMap()): String {
+        val uriBuilder = URIBuilder("${config.appConfig?.splitwiseV3BaseUrl}/$endpoint")
+        params?.forEach {
+            uriBuilder.addParameter(it.key, it.value)
+        }
+        val request =
+            RequestBuilder
+                .get()
+                .setUri(uriBuilder.build())
+                .setHeader(AUTHORIZATION_HEADER_KEY, "$BEARER_IDENTIFIER $apiKey")
+            .build()
+
         return EntityUtils.toString(httpClient.execute(request).entity)
     }
-}
-
-private fun HttpGet.addAuthHeader(apiKey: String): HttpGet {
-    this.addHeader("Authorization", "Bearer $apiKey")
-    return this
 }
