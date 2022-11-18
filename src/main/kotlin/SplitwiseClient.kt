@@ -3,6 +3,7 @@ import com.fasterxml.jackson.module.kotlin.readValue
 import models.domain.Expense
 import models.responses.GetExpensesResponse
 import org.apache.http.client.HttpClient
+import utils.ConfigLoader
 import utils.HttpUtils
 
 private const val LIMIT_INFINITE = "0"
