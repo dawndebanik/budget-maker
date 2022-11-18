@@ -3,37 +3,27 @@ import com.fasterxml.jackson.module.kotlin.readValue
 import models.domain.Expense
 import models.responses.GetExpensesResponse
 import org.apache.http.client.HttpClient
-import org.apache.http.client.methods.RequestBuilder
-import org.apache.http.client.utils.URIBuilder
-import org.apache.http.util.EntityUtils
+import utils.HttpUtils
 
-private const val AUTHORIZATION_HEADER_KEY = "Authorization"
-private const val BEARER_IDENTIFIER = "Bearer"
-
+private const val LIMIT_INFINITE = "0"
 class SplitwiseClient(private var httpClient: HttpClient) {
 
     private val objectMapper = jacksonObjectMapper()
     private val config = ConfigLoader.getApplicationConfig()
 
-    fun getExpenses(): List<Expense> {
-        val response = performGetCall(config.appConfig?.getExpensesEndpoint)
+    fun getExpenses(fromDate: String? = null, toDate: String? = null, limit: String? = LIMIT_INFINITE): List<Expense> {
+        val params = getParams(fromDate, toDate, limit)
+        val response = HttpUtils.performGetCall(httpClient, config.appConfig?.getExpensesEndpoint, params)
         val getExpensesResponse: GetExpensesResponse = objectMapper.readValue(response)
 
         return getExpensesResponse.expenses
     }
 
-    private fun performGetCall(endpoint: String?, params: Map<String, String>? = emptyMap()): String {
-        val uriBuilder = URIBuilder("${config.appConfig?.splitwiseV3BaseUrl}/$endpoint")
-        params?.forEach {
-            uriBuilder.addParameter(it.key, it.value)
-        }
-        val request =
-            RequestBuilder
-                .get()
-                .setUri(uriBuilder.build())
-                .setHeader(AUTHORIZATION_HEADER_KEY, "$BEARER_IDENTIFIER ${config.apiKey}")
-            .build()
-
-        return EntityUtils.toString(httpClient.execute(request).entity)
+    private fun getParams(fromDate: String?, toDate: String?, limit: String?): Map<String, String> {
+        val params = HashMap<String, String>()
+        fromDate?.let { params.put("dated_after", it) }
+        toDate?.let { params.put("dated_before", it) }
+        limit?.let { params.put("limit", it) }
+        return params
     }
 }
