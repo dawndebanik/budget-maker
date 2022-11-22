@@ -7,5 +7,6 @@ data class Config (
 
 data class AppConfig(
     val splitwiseV3BaseUrl: String = "",
-    val getExpensesEndpoint: String = ""
+    val getExpensesEndpoint: String = "",
+    val getCurrentUserEndpoint: String = ""
 )

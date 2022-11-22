@@ -1,6 +1,8 @@
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import models.domain.Expense
+import models.domain.UserDetails
+import models.responses.GetCurrentUserResponse
 import models.responses.GetExpensesResponse
 import org.apache.http.client.HttpClient
 import utils.ConfigLoader
@@ -18,6 +20,13 @@ class SplitwiseClient(private var httpClient: HttpClient) {
         val getExpensesResponse: GetExpensesResponse = objectMapper.readValue(response)
 
         return getExpensesResponse.expenses
+    }
+
+    fun getCurrentUser(): UserDetails? {
+        val response = HttpUtils.performGetCall(httpClient, config.appConfig?.getCurrentUserEndpoint)
+        val getCurrentUserResponse: GetCurrentUserResponse = objectMapper.readValue(response)
+
+        return getCurrentUserResponse.user
     }
 
     private fun getParams(fromDate: String?, toDate: String?, limit: String?): Map<String, String> {
