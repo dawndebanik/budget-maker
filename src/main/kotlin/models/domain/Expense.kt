@@ -10,5 +10,7 @@ data class Expense (
     val users: List<User>? = null,
     val date: String? = null,
     val category: Category? = null,
+    val payment: Boolean = false,
+    @JsonProperty("creation_method") val creationMethod: String? = null,
     @JsonProperty("deleted_at") val deletedAt: String? = null
 )
