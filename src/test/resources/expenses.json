@@ -1,0 +1,190 @@
+{
+  "expenses": [
+    {
+      "id": 2031911153,
+      "description": "Water",
+      "date": "2022-11-22T12:52:25Z",
+      "deleted_at": "2022-11-22T12:52:25Z",
+      "category": {
+        "id": 7,
+        "name": "Water"
+      },
+      "users": [
+        {
+          "user": {
+            "id": 27845780,
+            "first_name": "Anuraj",
+            "last_name": "Guha",
+            "picture": {
+              "medium": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-teal20-100px.png"
+            }
+          },
+          "user_id": 27845780,
+          "paid_share": "0.0",
+          "owed_share": "20.0",
+          "net_balance": "-20.0"
+        },
+        {
+          "user": {
+            "id": 22662180,
+            "first_name": "Debanik",
+            "last_name": "Dawn",
+            "picture": {
+              "medium": "https://splitwise.s3.amazonaws.com/uploads/user/avatar/22662180/medium_e3425e17-54f7-463b-8a85-2f4e9f4eb25b.jpeg"
+            }
+          },
+          "user_id": 22662180,
+          "paid_share": "40.0",
+          "owed_share": "20.0",
+          "net_balance": "20.0"
+        }
+      ]
+    },
+    {
+      "id": 2031886486,
+      "description": "Doi",
+      "date": "2022-11-22T12:32:31Z",
+      "deleted_at": null,
+      "category": {
+        "id": 18,
+        "name": "General"
+      },
+      "users": [
+        {
+          "user": {
+            "id": 22662180,
+            "first_name": "Debanik",
+            "last_name": "Dawn",
+            "picture": {
+              "medium": "https://splitwise.s3.amazonaws.com/uploads/user/avatar/22662180/medium_e3425e17-54f7-463b-8a85-2f4e9f4eb25b.jpeg"
+            }
+          },
+          "user_id": 22662180,
+          "paid_share": "0.0",
+          "owed_share": "12.0",
+          "net_balance": "-12.0"
+        }
+      ]
+    },
+    {
+      "id": 2030924060,
+      "description": "Veg",
+      "date": "2022-11-21T19:22:45Z",
+      "deleted_at": null,
+      "category": {
+        "id": 12,
+        "name": "Groceries"
+      },
+      "users": [
+        {
+          "user": {
+            "id": 22662180,
+            "first_name": "Debanik",
+            "last_name": "Dawn",
+            "picture": {
+              "medium": "https://splitwise.s3.amazonaws.com/uploads/user/avatar/22662180/medium_e3425e17-54f7-463b-8a85-2f4e9f4eb25b.jpeg"
+            }
+          },
+          "user_id": 22662180,
+          "paid_share": "0.0",
+          "owed_share": "107.0",
+          "net_balance": "-107.0"
+        },
+        {
+          "user": {
+            "id": 27845780,
+            "first_name": "Anuraj",
+            "last_name": "Guha",
+            "picture": {
+              "medium": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-teal20-100px.png"
+            }
+          },
+          "user_id": 27845780,
+          "paid_share": "214.0",
+          "owed_share": "107.0",
+          "net_balance": "107.0"
+        }
+      ]
+    },
+    {
+      "id": 2030923766,
+      "description": "Groceries",
+      "date": "2022-11-21T19:22:31Z",
+      "deleted_at": null,
+      "category": {
+        "id": 18,
+        "name": "General"
+      },
+      "users": [
+        {
+          "user": {
+            "id": 22662180,
+            "first_name": "Debanik",
+            "last_name": "Dawn",
+            "picture": {
+              "medium": "https://splitwise.s3.amazonaws.com/uploads/user/avatar/22662180/medium_e3425e17-54f7-463b-8a85-2f4e9f4eb25b.jpeg"
+            }
+          },
+          "user_id": 22662180,
+          "paid_share": "0.0",
+          "owed_share": "434.0",
+          "net_balance": "-434.0"
+        },
+        {
+          "user": {
+            "id": 27845780,
+            "first_name": "Anuraj",
+            "last_name": "Guha",
+            "picture": {
+              "medium": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-teal20-100px.png"
+            }
+          },
+          "user_id": 27845780,
+          "paid_share": "868.0",
+          "owed_share": "434.0",
+          "net_balance": "434.0"
+        }
+      ]
+    },
+    {
+      "id": 2030444202,
+      "description": "Payment",
+      "date": "2022-11-21T14:52:52Z",
+      "deleted_at": null,
+      "category": {
+        "id": 18,
+        "name": "General"
+      },
+      "users": [
+        {
+          "user": {
+            "id": 27845780,
+            "first_name": "Anuraj",
+            "last_name": "Guha",
+            "picture": {
+              "medium": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-teal20-100px.png"
+            }
+          },
+          "user_id": 27845780,
+          "paid_share": "0.0",
+          "owed_share": "1752.5",
+          "net_balance": "-1752.5"
+        },
+        {
+          "user": {
+            "id": 60713223,
+            "first_name": "Vishnu",
+            "last_name": "Bhagyanath",
+            "picture": {
+              "medium": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-grey34-100px.png"
+            }
+          },
+          "user_id": 60713223,
+          "paid_share": "1752.5",
+          "owed_share": "0.0",
+          "net_balance": "1752.5"
+        }
+      ]
+    }
+  ]
+}
