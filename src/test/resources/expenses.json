@@ -1,6 +1,47 @@
 {
   "expenses": [
     {
+      "id": 2030444202,
+      "description": "Night Uber",
+      "payment": false,
+      "date": "2022-11-21T14:52:52Z",
+      "deleted_at": null,
+      "category": {
+        "id": 18,
+        "name": "General"
+      },
+      "users": [
+        {
+          "user": {
+            "id": 27845780,
+            "first_name": "Anuraj",
+            "last_name": "Guha",
+            "picture": {
+              "medium": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-teal20-100px.png"
+            }
+          },
+          "user_id": 27845780,
+          "paid_share": "0.0",
+          "owed_share": "1752.5",
+          "net_balance": "-1752.5"
+        },
+        {
+          "user": {
+            "id": 60713223,
+            "first_name": "Vishnu",
+            "last_name": "Bhagyanath",
+            "picture": {
+              "medium": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-grey34-100px.png"
+            }
+          },
+          "user_id": 60713223,
+          "paid_share": "1752.5",
+          "owed_share": "0.0",
+          "net_balance": "1752.5"
+        }
+      ]
+    },
+    {
       "id": 2031911153,
       "description": "Water",
       "payment": false,

@@ -11,7 +11,7 @@ class CategoriserUtils {
 
         private fun categorise(expense: Expense, categoryToTokenSetMap: Map<String, Set<String>>): String? {
             val tokenToCategoryMap = reverseMap(categoryToTokenSetMap).mapKeys { mapEntry -> mapEntry.key.lowercase() }
-            val descriptionTokens = tokenize(expense.description)
+            val descriptionTokens = tokenize(expense.description)?.map { token -> token.lowercase() }
             descriptionTokens?.forEach { token ->
                 if (tokenToCategoryMap.containsKey(token)) {
                     return tokenToCategoryMap[token]
