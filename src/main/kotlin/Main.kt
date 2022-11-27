@@ -14,7 +14,8 @@ fun main() {
     val expenses = splitwise.getExpenses(start.toString(), end.toString())
     val myUserId = splitwise.getCurrentUser()?.id!!
     val usersShare = ExpenseUtils.getUsersShareFromExpenses(myUserId, expenses)
-    usersShare.forEach { (expense, share) ->
-        println("${expense.description} --- ${expense.date} --- $share")
-    }
+    val categories = Categoriser().categorise(usersShare.keys.toList())
+
+    usersShare.forEach { (expense, share) -> println("${expense.description} --- ${expense.date} --- $share") }
+    categories.forEach { (expense, category) ->  println("${expense.description} --- $category") }
 }
