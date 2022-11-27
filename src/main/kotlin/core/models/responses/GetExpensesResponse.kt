@@ -1,7 +1,7 @@
-package models.responses
+package core.models.responses
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
-import models.domain.Expense
+import core.models.domain.Expense
 import java.util.*
 
 @JsonIgnoreProperties(ignoreUnknown = true)

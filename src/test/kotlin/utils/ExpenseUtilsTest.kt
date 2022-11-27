@@ -2,8 +2,8 @@ package utils
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
-import models.domain.Expense
-import models.responses.GetExpensesResponse
+import core.models.domain.Expense
+import core.models.responses.GetExpensesResponse
 import org.junit.jupiter.api.Test
 import java.io.File
 import kotlin.test.assertEquals

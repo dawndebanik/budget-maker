@@ -1,4 +1,4 @@
-package models
+package core.models
 
 data class Config (
     val apiKey: String = "",

@@ -1,4 +1,4 @@
-package utils
+package core.utils
 
 import org.apache.http.client.HttpClient
 import org.apache.http.client.methods.RequestBuilder

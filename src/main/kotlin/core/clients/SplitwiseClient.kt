@@ -1,12 +1,14 @@
+package core.clients
+
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
-import models.domain.Expense
-import models.domain.UserDetails
-import models.responses.GetCurrentUserResponse
-import models.responses.GetExpensesResponse
+import core.models.domain.Expense
+import core.models.domain.UserDetails
+import core.models.responses.GetCurrentUserResponse
+import core.models.responses.GetExpensesResponse
 import org.apache.http.client.HttpClient
-import utils.ConfigLoader
-import utils.HttpUtils
+import core.utils.ConfigLoader
+import core.utils.HttpUtils
 
 private const val LIMIT_INFINITE = "0"
 class SplitwiseClient(private var httpClient: HttpClient) {

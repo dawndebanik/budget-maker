@@ -1,8 +1,8 @@
-package utils
+package core.utils
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
-import models.Config
+import core.models.Config
 import java.io.File
 
 private const val CONFIG_FILE_PATH = "/var/conf/config.yml"

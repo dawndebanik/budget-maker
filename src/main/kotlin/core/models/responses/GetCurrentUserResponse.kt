@@ -1,7 +1,7 @@
-package models.responses
+package core.models.responses
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
-import models.domain.UserDetails
+import core.models.domain.UserDetails
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class GetCurrentUserResponse (

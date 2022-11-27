@@ -1,4 +1,4 @@
-package models.domain
+package core.models.domain
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 

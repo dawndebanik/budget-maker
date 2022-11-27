@@ -1,7 +1,7 @@
 package utils
 
-import models.domain.Expense
-import models.domain.User
+import core.models.domain.Expense
+import core.models.domain.User
 
 private const val CREATION_METHOD_DEBT_CONSOLIDATION_IDENTIFIER = "debt_consolidation"
 
