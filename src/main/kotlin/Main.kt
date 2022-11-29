@@ -1,7 +1,7 @@
 import core.clients.SplitwiseClient
+import models.CategorisedUserExpenses
 import org.apache.http.client.HttpClient
 import org.apache.http.impl.client.HttpClients
-import utils.ExpenseUtils
 import java.time.LocalDate
 import java.time.ZoneId
 
@@ -13,9 +13,7 @@ fun main() {
 
     val expenses = splitwise.getExpenses(start.toString(), end.toString())
     val myUserId = splitwise.getCurrentUser()?.id!!
-    val usersShare = ExpenseUtils.getUsersShareFromExpenses(myUserId, expenses)
-    val categories = Categoriser().categorise(usersShare.keys.toList())
+    val categorisedUserExpenses = CategorisedUserExpenses.getFromUserExpenses(myUserId, expenses)
 
-    usersShare.forEach { (expense, share) -> println("${expense.description} --- ${expense.date} --- $share") }
-    categories.forEach { (expense, category) ->  println("${expense.description} --- $category") }
+    println(categorisedUserExpenses.toCsvString())
 }
