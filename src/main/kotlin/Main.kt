@@ -7,11 +7,13 @@ import java.io.OutputStream
 import java.time.LocalDate
 import java.time.ZoneId
 
-fun main() {
+private const val INDIA_TIME_ZONE = "Asia/Calcutta"
+
+fun main(args: Array<String>) {
     val httpClient: HttpClient = HttpClients.createDefault()
     val splitwise = SplitwiseClient(httpClient)
-    val start = LocalDate.parse("2022-11-01").atStartOfDay(ZoneId.of("Asia/Calcutta")).toInstant()
-    val end = LocalDate.parse("2022-12-01").atStartOfDay(ZoneId.of("Asia/Calcutta")).toInstant()
+    val start = LocalDate.parse(args[0]).atStartOfDay(ZoneId.of(INDIA_TIME_ZONE)).toInstant()
+    val end = LocalDate.parse(args[1]).atStartOfDay(ZoneId.of(INDIA_TIME_ZONE)).toInstant()
 
     val expenses = splitwise.getExpenses(start.toString(), end.toString())
     val myUserId = splitwise.getCurrentUser()?.id!!
@@ -23,5 +25,5 @@ fun main() {
         writer.flush()
     }
 
-    FileOutputStream("filename.csv").apply { writeCsv(categorisedUserExpenses) }
+    FileOutputStream(args[2]).apply { writeCsv(categorisedUserExpenses) }
 }
