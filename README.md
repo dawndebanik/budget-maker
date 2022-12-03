@@ -1,6 +1,6 @@
 # Splitwise Budget Maker
 
-This command line app uses the Splitwise API to generate a report of the user's spending within in a given timeframe. On top of the categories offered by Splitwise, htis app also adds addtiitonl functionatlity to create user defined categories (that might be more sutied to the user's context) by usin a system of word-matching rules.
+This command line app uses the [Splitwise API](https://dev.splitwise.com/) to generate a report of the user's spending within in a given timeframe. On top of the categories offered by Splitwise, htis app also adds addtiitonl functionatlity to create user defined categories (that might be more sutied to the user's context) by usin a system of word-matching rules.
 
 ## Setup
 
@@ -10,7 +10,7 @@ This command line app uses the Splitwise API to generate a report of the user's 
   ```
   export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home
   ```
-3. Login to slitwise and go to https://secure.splitwise.com/apps/new to register yourself to get your API key. (Fill out the fields in the form as per your wish - it doesn't really matter what you enter)
+3. Login to slitwise and [register yourself](https://secure.splitwise.com/apps/new) to get your API key. (Fill out the fields in the form as per your wish - it doesn't really matter what you enter)
 4. Create a file named `config.yml` under `/var/conf` directory. The contents of the file should be like as shown below. Paste your API key in the mentioned field.
 ```
 apiKey: <your API key>
