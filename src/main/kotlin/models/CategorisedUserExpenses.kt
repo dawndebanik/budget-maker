@@ -12,7 +12,11 @@ class CategorisedUserExpenses private constructor(private val categorisedUserExp
 
             val categorisedUserExpenseList = usersShare.map { expenseToShare ->
                 CategorisedUserExpense(expenseToShare.key, expenseToShare.value, categories[expenseToShare.key])
-            }.toList()
+            }
+                .toList()
+                .sortedWith(
+                    compareBy<CategorisedUserExpense> { it.category }.thenByDescending { it.userShare }
+                )
 
             return CategorisedUserExpenses(categorisedUserExpenseList)
         }
@@ -20,13 +24,13 @@ class CategorisedUserExpenses private constructor(private val categorisedUserExp
 
     fun toCsvString(): String {
         val stringBuilder = StringBuilder()
-        stringBuilder.append("Expense,Share,Category\n")
+        stringBuilder.append("Expense,Category,Share\n")
         this.categorisedUserExpenseList.forEach { stringBuilder.append(it.toCsvRow() + "\n") }
 
         return stringBuilder.toString()
     }
 
-    class CategorisedUserExpense(private val expense: Expense, private val userShare: Double?, private val category: String?) {
+    class CategorisedUserExpense(val expense: Expense, val userShare: Double?, val category: String?) {
         fun toCsvRow(): String {
             return "${expense.description},$category,$userShare"
         }

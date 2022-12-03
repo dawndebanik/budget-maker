@@ -12,7 +12,7 @@ class ExpenseUtils {
             val expensesForUser = getExpensesForUserInvolved(userId, getNonPaymentExpenses(nonDeletedExpenses))
             return expensesForUser.associateWith {
                 getUserFromExpense(userId, it)?.owedShare
-            }
+            }.filter { entry -> entry.value != null && !entry.value!!.equals(0.0) }
         }
 
         private fun getNonDeletedExpenses(expenses: List<Expense>): List<Expense> {
